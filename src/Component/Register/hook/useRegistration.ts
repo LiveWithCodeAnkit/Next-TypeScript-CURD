@@ -1,7 +1,8 @@
-
-import { useRouter } from 'next/navigation';
+"use-client";
+import { useRouter } from "next/navigation";
 import { registerSchema } from "../schema/registerSchema";
 import { useToastMessages } from "./useToastMessages";
+
 
 interface RegistrationFormData {
   email: string;
@@ -23,8 +24,6 @@ export const useRegistration = () => {
     values: RegistrationFormData,
     { resetForm }: any
   ) => {
-    console.log("handleRegistration", values);
-
     const storedData = localStorage.getItem("UserRegister");
 
     const storedInfo = storedData ? JSON.parse(storedData) : [];
@@ -38,17 +37,20 @@ export const useRegistration = () => {
     }
 
     const id = new Date().getTime().toString();
+
     const registrationEntry = {
-      id,
+      id: new Date().getTime().toString(),
       ...values,
     };
 
     const updatedInfo = [...storedInfo, registrationEntry];
     localStorage.setItem("UserRegister", JSON.stringify(updatedInfo));
-    resetForm();
+
     Success("Registration Successful");
-    router.push(`/profile/${id}`);
-   
+
+    setTimeout(() => {
+      router.push(`/profile/${id}`);
+    }, 1000);
   };
 
   return {
