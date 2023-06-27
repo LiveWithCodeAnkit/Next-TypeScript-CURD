@@ -1,11 +1,21 @@
-import React from 'react'
+"use client";
+import React, { useEffect, useState } from "react";
 
 export const useLogged = () => {
-    const storedData = localStorage.getItem("UserRegister");
+    
+  const [storedData, setStoredData] = useState<any[]>([]);
 
-    const storedInfo = storedData ? JSON.parse(storedData) : [];
-    console.log(storedInfo);
-    return storedInfo;
+  useEffect(() => {
+    if (typeof localStorage !== "undefined") {
+      const data = localStorage.getItem("UserLogin");
+      if (data) {
+        const parsedData = JSON.parse(data);
+        setStoredData(parsedData);
+      }
+    }
+  }, []);
+
+  return storedData
 }
 
  

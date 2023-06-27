@@ -9,9 +9,5 @@ export const menus = [
     tittle: "Login",
     path: "/login",
   },
-  {
-    id: 3,
-    tittle: "Templets",
-    path: "/templets",
-  },
+ 
 ];
