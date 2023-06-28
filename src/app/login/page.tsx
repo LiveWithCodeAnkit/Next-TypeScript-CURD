@@ -1,13 +1,13 @@
-import Login from "@/Component/Login/Login"
-
-
+import Navbar from "@/Component/Header/Navbar";
+import Login from "@/Component/Login/Login";
 
 const page = () => {
   return (
     <>
-     <Login/>
+      <Navbar />
+      <Login />
     </>
-  )
-}
+  );
+};
 
-export default page
+export default page;

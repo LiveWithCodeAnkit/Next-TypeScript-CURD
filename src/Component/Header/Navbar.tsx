@@ -1,29 +1,22 @@
-"use client";
-import React, { useState, useEffect,useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
+
 const Navbar = () => {
   const router = useRouter();
-
-  const [isValid3, setIsValid] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("UserLogin");
     localStorage.setItem("Authenticate", "false");
- 
-    router.push("/pp");
+    router.push("/");
   };
 
-  const isValid = useMemo(() => {
-    console.log("i am nav bar ds");
-    const isValid1 = localStorage.getItem("Authenticate") === "true";
-    setIsValid(isValid1);
-    return isValid3
-  }, [isValid3]);
+  const [auth, setAuth] = useState(false);
 
-
-
- 
+  useEffect(() => {
+    const auth = localStorage.getItem("Authenticate") === "true";
+    setAuth(auth);
+  }, []);
 
   return (
     <>
@@ -33,21 +26,14 @@ const Navbar = () => {
         </h1>
         <nav>
           <ul className="flex items-center gap-5 text-2xl text-yellow-100 font-semibold">
-            {/* {menus.map((items) => (
-              <li key={items.id}>
-                <Link href={items.path} className="hover:text-gray-600">
-                  {items.tittle}
-                </Link>
-              </li>
-            ))} */}
-            {!isValid && (
+            {!auth && (
               <li>
                 <Link href="/register" className="hover:text-gray-600">
                   Register
                 </Link>
               </li>
             )}
-            {!isValid && (
+            {!auth && (
               <li>
                 <Link href="/login" className="hover:text-gray-600">
                   Login
@@ -56,7 +42,7 @@ const Navbar = () => {
             )}
           </ul>
         </nav>
-        {isValid && (
+        {auth && (
           <button
             className="font-Pacifico text-xl rounded-lg hover:text-white w-auto p-2 bg-[#7b9194]"
             onClick={handleLogout}

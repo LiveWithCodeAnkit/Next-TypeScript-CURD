@@ -1,9 +1,10 @@
 "use client";
-import Login from '@/Component/Login/Login';
-import ViewInfo from '@/Component/Profile/ViewInfo'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
+import Navbar from "@/Component/Header/Navbar";
+import Login from "@/Component/Login/Login";
+import ViewInfo from "@/Component/Profile/ViewInfo";
 
-const page = () => {
+const Page: React.FC = () => {
   const [storedData, setStoredData] = useState<any[]>([]);
 
   useEffect(() => {
@@ -12,19 +13,23 @@ const page = () => {
       if (data) {
         const parsedData = JSON.parse(data);
         setStoredData(parsedData);
-        console.log(storedData);
+        console.log(parsedData);
       }
     }
   }, []);
-  const array = [storedData];
+
   return (
     <>
-    {
-      storedData?<ViewInfo/>:<Login/>
-    }
-     
+      {storedData ? (
+        <>
+          <Navbar />
+          <ViewInfo />
+        </>
+      ) : (
+        <Login />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default page
+export default Page;
