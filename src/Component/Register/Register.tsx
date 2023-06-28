@@ -2,7 +2,6 @@
 import React from "react";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import { useRegistration } from "./hook/useRegistration";
-import { ToastContainer } from "react-toastify";
 
 const Register = () => {
   const { initialValues, handleSubmit, schema } = useRegistration();
@@ -14,7 +13,6 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         <Form>
-        <ToastContainer />
           <div className="flex justify-center items-start text-center p-20">
             <div className="flex flex-col items-start gap-6 bg-blue-400 p-10 text-lg font-medium text-yellow-100 rounded-lg">
               <h1 className="font-extrabold text-3xl">Registration</h1>
