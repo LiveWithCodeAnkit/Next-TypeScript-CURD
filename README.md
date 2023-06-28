@@ -1,6 +1,6 @@
 # Next.js 13 CRUD with Static, Dynamic, and Nesting Routing
 
-This repository provides an example application built with Next.js 13, showcasing various features such as CRUD operations, static and dynamic routing, nesting routing, form validation using Formik and Yup, as well as login/logout functionality and user registration.
+This repository provides an example application built with Next.js 13 using TypeScript, showcasing various features such as CRUD operations, static and dynamic routing, nesting routing, form validation using Formik and Yup, as well as login/logout functionality and user registration.
 
 ## Features
 
