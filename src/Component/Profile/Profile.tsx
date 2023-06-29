@@ -1,7 +1,6 @@
 "use client";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import { useParams } from "next/navigation";
-import { ToastContainer } from "react-toastify";
 import { useProfile } from "./hook/useProfile";
 
 const Profile = () => {
@@ -23,11 +22,11 @@ const Profile = () => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <ToastContainer />
+         
           <div className="flex justify-center items-start text-center p-20">
             <div className=" flex flex-col items-start gap-6 bg-blue-400 p-10 text-lg font-medium text-yellow-100 rounded-lg">
               <h1 className="font-extrabold text-3xl">
-                Complete Your Profile !
+                Complete Your Profile 😎
               </h1>
               <div className="flex gap-3">
                 <div className="flex gap-2 justify-center items-center">

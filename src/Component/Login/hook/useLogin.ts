@@ -2,8 +2,6 @@
 import { useRouter } from "next/navigation";
 import { loginSchema } from "../schema/loginSchema";
 import { useToastMessages } from "@/Component/Register/hook/useToastMessages";
-import { redirect } from 'next/navigation'
-
 
 export const useLogin = () => {
   const router = useRouter();
@@ -13,10 +11,7 @@ export const useLogin = () => {
     password: "",
   };
     const handleLogin = (values: any, { resetForm }: any) => {
-      console.log(" ia m login");
-      
     const loggedUser = { ...values };
-
     const storedData = localStorage.getItem("UserRegister");
     const dataBase = storedData ? JSON.parse(storedData) : [];
     const validUser = dataBase.find(
