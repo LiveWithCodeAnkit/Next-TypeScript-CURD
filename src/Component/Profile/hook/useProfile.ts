@@ -14,9 +14,6 @@ export const useProfile = () => {
   const registrationInfo = storedInfo.find(
     (data: any) => data.id === params.profile
   );
-
-console.log("i am new param:=",params.profile);
-
   const initialValues: any = {
     name: registrationInfo?registrationInfo.name:"",
     gender: registrationInfo?registrationInfo.gender:"",
@@ -26,10 +23,6 @@ console.log("i am new param:=",params.profile);
     dob: registrationInfo?registrationInfo.dob:"",
     profileImg:"",
   };
-
-
-
-
   const handleProfile = (values: any, { resetForm }: any) => {
     const storedData = localStorage.getItem("UserRegister");
     const storedInfo = storedData ? JSON.parse(storedData) : [];

@@ -7,10 +7,6 @@ import { useAuth } from "@/store/auth";
 const Login = () => {
   const { initialValues, handleLogin, loginSchema } = useLogin();
   const {auth} = useAuth();
-
-  console.log("i am context auth:=",auth);
-
-  
   return (
     <>
       <Formik

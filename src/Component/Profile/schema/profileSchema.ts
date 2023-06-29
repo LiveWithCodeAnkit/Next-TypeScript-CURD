@@ -1,16 +1,8 @@
 import * as Yup from "yup";
 
-import React from "react";
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 const validFileExtensions = { image: ["jpg", "gif", "png", "jpeg", "svg"] };
-
-// const isValidFileType = (fileName: string, fileType: string) => {
-//   return (
-//     fileName &&
-//     validFileExtensions[fileType].indexOf(fileName.split(".").pop()) > -1
-//   );
-// };
 export const profileSchema = Yup.object().shape({
   name: Yup.string()
     .max(40, "Max 40 size")
@@ -30,7 +22,5 @@ export const profileSchema = Yup.object().shape({
   .default(undefined),
 
   profileImg: Yup.mixed().required("Profile Pic Required"),
-  // .test("is-valid-type", "Not a valid image type", (value) =>
-  //   // isValidFileType(value && value.name.toLowerCase(), "image")
-  // ),
+ 
 });
