@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/store/auth";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
@@ -19,8 +20,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ToastContainer />
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );
 }
+
+

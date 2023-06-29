@@ -7,15 +7,29 @@ export const useProfile = () => {
   const params = useParams();
   const router = useRouter();
   const { Success, Warn } = useToastMessages();
+
+
+  const storedData = localStorage.getItem("UserRegister");
+  const storedInfo = storedData ? JSON.parse(storedData) : [];
+  const registrationInfo = storedInfo.find(
+    (data: any) => data.id === params.profile
+  );
+
+console.log("i am new param:=",params.profile);
+
   const initialValues: any = {
-    name: "",
-    gender: "",
-    phone: "",
-    hobby: "",
-    hq: "",
-    dob: "",
-    profileImg: "",
+    name: registrationInfo?registrationInfo.name:"",
+    gender: registrationInfo?registrationInfo.gender:"",
+    phone: registrationInfo?registrationInfo.phone:"",
+    hobby:registrationInfo?registrationInfo.hobby:"",
+    hq:registrationInfo?registrationInfo.hq:"",
+    dob: registrationInfo?registrationInfo.dob:"",
+    profileImg:"",
   };
+
+
+
+
   const handleProfile = (values: any, { resetForm }: any) => {
     const storedData = localStorage.getItem("UserRegister");
     const storedInfo = storedData ? JSON.parse(storedData) : [];

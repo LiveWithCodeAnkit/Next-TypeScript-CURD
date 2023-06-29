@@ -20,13 +20,16 @@ const Page: React.FC = () => {
 
   return (
     <>
-      {storedData ? (
+      {Object.keys(storedData).length !== 0 ? (
         <>
           <Navbar />
           <ViewInfo />
         </>
       ) : (
-        <Login />
+        <>
+          <Navbar />
+          <Login />
+        </>
       )}
     </>
   );
