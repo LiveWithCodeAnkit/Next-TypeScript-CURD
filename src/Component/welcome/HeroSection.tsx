@@ -3,10 +3,11 @@ import React from "react";
 const HeroSection = () => {
   return (
     <>
-      <div className="flex justify-center items-start text-center p-20">
-        <h1 className="font-extrabold text-3xl">
-          Portfolio.in
-        </h1>
+      <div className="flex  flex-col justify-center items-center text-center p-20 font-extrabold text-3xl gap-6 text-blue-600">
+        <h1>Next JS 13 Update</h1>
+        <h1>* CURD With Validation</h1>
+        <h1>* Route Authentication</h1>
+        <h1>* Cookies</h1>
       </div>
     </>
   );

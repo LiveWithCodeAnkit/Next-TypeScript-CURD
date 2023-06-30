@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { loginSchema } from "../schema/loginSchema";
 import { useToastMessages } from "@/Component/Register/hook/useToastMessages";
+import { setCookie } from 'cookies-next';
 
 export const useLogin = () => {
   const router = useRouter();
@@ -24,7 +25,7 @@ export const useLogin = () => {
       localStorage.setItem("UserLogin", JSON.stringify(validUser));
       localStorage.setItem("Authenticate", "true");
       Success("Login Successful");
-
+      setCookie('Authenticate', 'true');
       setTimeout(() => {
         router.push('/profile');
       }, 1000);

@@ -3,7 +3,6 @@ import { useRouter } from "next/navigation";
 import { registerSchema } from "../schema/registerSchema";
 import { useToastMessages } from "./useToastMessages";
 
-
 interface RegistrationFormData {
   email: string;
   password: string;
@@ -32,7 +31,7 @@ export const useRegistration = () => {
       (entry: RegistrationFormData) => entry.email === values.email
     );
     if (isEmailExists) {
-      Warn("Email All Ready Exits !s");
+      Warn("Email Already Exits !s");
       return;
     }
 
@@ -47,7 +46,7 @@ export const useRegistration = () => {
     localStorage.setItem("UserRegister", JSON.stringify(updatedInfo));
 
     Success("Registration Successful");
-
+    resetForm();
     setTimeout(() => {
       router.push(`/profile/${id}`);
     }, 1000);

@@ -1,10 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useLogged = () => {
-    
   const [storedData, setStoredData] = useState<any[]>([]);
-
   useEffect(() => {
     if (typeof localStorage !== "undefined") {
       const data = localStorage.getItem("UserLogin");
@@ -15,7 +13,5 @@ export const useLogged = () => {
     }
   }, []);
 
-  return storedData
-}
-
- 
+  return storedData;
+};

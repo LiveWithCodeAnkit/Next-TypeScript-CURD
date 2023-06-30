@@ -1,5 +1,5 @@
 import Navbar from "@/Component/Header/Navbar";
-import React from "react";
+
 const Error = () => {
   return (
     <>

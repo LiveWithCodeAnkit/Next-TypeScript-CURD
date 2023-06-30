@@ -2,11 +2,10 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import React from "react";
 import { useLogin } from "./hook/useLogin";
-import { useAuth } from "@/store/auth";
 
 const Login = () => {
   const { initialValues, handleLogin, loginSchema } = useLogin();
-  const {auth} = useAuth();
+
   return (
     <>
       <Formik
@@ -55,5 +54,4 @@ const Login = () => {
     </>
   );
 };
-
 export default Login;

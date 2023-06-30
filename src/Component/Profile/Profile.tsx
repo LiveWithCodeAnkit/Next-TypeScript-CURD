@@ -44,13 +44,20 @@ const Profile = () => {
                 </div>
                 <div className="flex gap-2 justify-center items-center">
                   <label>Gender</label>
-                  <Field type="radio" name="gender" id="gender" value="male" />
+                  <Field
+                    type="radio"
+                    name="gender"
+                    id="gender"
+                    value="male"
+                    className="accent-red-800"
+                  />
                   Male
                   <Field
                     type="radio"
                     name="gender"
                     id="gender"
                     value="female"
+                    className="accent-red-800"
                   />
                   Female
                 </div>
@@ -84,6 +91,7 @@ const Profile = () => {
                         name="hobby"
                         id="hobby"
                         value="Study"
+                        className="accent-red-800"
                       />
                       <label>Study</label>
                     </div>
@@ -93,6 +101,7 @@ const Profile = () => {
                         name="hobby"
                         id="hobby"
                         value="Code"
+                        className="accent-red-800"
                       />
                       <label>Code</label>
                     </div>
@@ -102,6 +111,7 @@ const Profile = () => {
                         name="hobby"
                         id="hobby"
                         value="Nothing"
+                        className="accent-red-800"
                       />
                       <label>Nothing</label>
                     </div>

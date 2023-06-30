@@ -1,5 +1,4 @@
-import { useParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { profileSchema } from "../schema/profileSchema";
 import { useToastMessages } from "@/Component/Register/hook/useToastMessages";
 
@@ -7,22 +6,22 @@ export const useProfile = () => {
   const params = useParams();
   const router = useRouter();
   const { Success, Warn } = useToastMessages();
-
-
   const storedData = localStorage.getItem("UserRegister");
   const storedInfo = storedData ? JSON.parse(storedData) : [];
   const registrationInfo = storedInfo.find(
     (data: any) => data.id === params.profile
   );
+
   const initialValues: any = {
-    name: registrationInfo?registrationInfo.name:"",
-    gender: registrationInfo?registrationInfo.gender:"",
-    phone: registrationInfo?registrationInfo.phone:"",
-    hobby:registrationInfo?registrationInfo.hobby:"",
-    hq:registrationInfo?registrationInfo.hq:"",
-    dob: registrationInfo?registrationInfo.dob:"",
-    profileImg:"",
+    name: registrationInfo ? registrationInfo.name : "",
+    gender: registrationInfo ? registrationInfo.gender : "",
+    phone: registrationInfo ? registrationInfo.phone : "",
+    hobby: registrationInfo ? registrationInfo.hobby : "",
+    hq: registrationInfo ? registrationInfo.hq : "",
+    dob: registrationInfo ? registrationInfo.dob : "",
+    profileImg: "",
   };
+
   const handleProfile = (values: any, { resetForm }: any) => {
     const storedData = localStorage.getItem("UserRegister");
     const storedInfo = storedData ? JSON.parse(storedData) : [];

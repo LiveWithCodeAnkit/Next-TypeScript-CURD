@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { deleteCookie } from "cookies-next";
 
 const Navbar = () => {
   const router = useRouter();
@@ -9,6 +10,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("UserLogin");
     localStorage.setItem("Authenticate", "false");
+     deleteCookie("Authenticate");
     router.push("/");
   };
 
