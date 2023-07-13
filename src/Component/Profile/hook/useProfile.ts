@@ -37,7 +37,7 @@ export const useProfile = () => {
     resetForm();
     Success("Profile Completed Successful !");
     setTimeout(() => {
-      router.push("/login");
+      router.push("/profile");
     }, 1000);
   };
   return {

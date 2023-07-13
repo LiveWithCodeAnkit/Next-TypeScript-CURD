@@ -2,16 +2,19 @@
 import { useRouter } from "next/navigation";
 import { loginSchema } from "../schema/loginSchema";
 import { useToastMessages } from "@/Component/Register/hook/useToastMessages";
-import { setCookie } from 'cookies-next';
+import { setCookie } from "cookies-next";
 
 export const useLogin = () => {
   const router = useRouter();
+
+
+
   const { Success, Warn } = useToastMessages();
-    const initialValues = {
+  const initialValues = {
     email: "",
     password: "",
   };
-    const handleLogin = (values: any, { resetForm }: any) => {
+  const handleLogin = (values: any, { resetForm }: any) => {
     const loggedUser = { ...values };
     const storedData = localStorage.getItem("UserRegister");
     const dataBase = storedData ? JSON.parse(storedData) : [];
@@ -25,9 +28,13 @@ export const useLogin = () => {
       localStorage.setItem("UserLogin", JSON.stringify(validUser));
       localStorage.setItem("Authenticate", "true");
       Success("Login Successful");
-      setCookie('Authenticate', 'true');
+      setCookie("Authenticate", "true");
+
+    console.log(validUser);
+    
+
       setTimeout(() => {
-        router.push('/profile');
+        router.push(`/profile/${validUser.id}`);
       }, 1000);
     } else {
       Warn("Invalid Id PassWord");
@@ -36,5 +43,4 @@ export const useLogin = () => {
   };
 
   return { initialValues, handleLogin, loginSchema };
-}
-
+};

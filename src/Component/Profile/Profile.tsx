@@ -10,6 +10,9 @@ const Profile = () => {
 
   const storedInfo = storedData ? JSON.parse(storedData) : [];
 
+console.log(params);
+
+
   const registrationInfo = storedInfo.find(
     (data: any) => data.id === params.profile
   );

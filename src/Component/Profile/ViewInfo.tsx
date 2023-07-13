@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useLogged } from "./helper/useLogged";
@@ -19,7 +19,13 @@ type dataItem = {
 
 const ViewInfo = () => {
   const router = useRouter();
-  const storedData: any = useLogged();
+
+
+  const dataBase = localStorage.getItem("UserLogin");
+  const storedData = dataBase ? JSON.parse(dataBase) : [];
+  // const storedData: any = useLogged();
+
+  console.log(" i am data :=", storedData);
 
   return (
     <>
